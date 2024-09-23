@@ -1,0 +1,44 @@
+public class Smartphone{
+private String brand;
+private String model;
+private int storage;  //GB
+private double price; //USD
+public Smartphone(){
+this.brand="";
+this.model="";
+this.storage=0;
+this.price=0.0;
+}
+public Smartphone(String brand,String model,int storage,double price){
+this.brand=brand;
+this.model=model;
+this.storage=storage;
+this.price=price;
+}
+public void displayInfo(){
+System.out.println("====================================");
+System.out.printf("Smartphone Info:\n");
+System.out.printf("Brand   :%s\n",this.brand);
+System.out.printf("Model   :%s\n",this.model);
+System.out.printf("Storage :%d GB\n", this.storage);
+System.out.printf("Price   :$%.2f\n",this.price);
+}
+public void applyDiscount(double discount){
+if(discount>0&& discount<this.price){
+this.price-=discount;
+System.out.printf("\nDiscount of $%.2f applied. New price: $%.2f\n",discount, this.price);
+}else{
+System.out.println("Invalid discount amount.");
+}
+}
+public static void main(String[] args){
+Smartphone phone1=new Smartphone("Apple","Iphone 16pro",512,2500);
+phone1.displayInfo();
+Smartphone phone2 = new Smartphone("Apple","iPhone 14",128,999);
+Smartphone phone3 = new Smartphone("Samsung","Galaxy S23",256,849);
+phone2.displayInfo();
+phone3.displayInfo();
+phone2.applyDiscount(100); //100
+phone3.applyDiscount(50);  //50
+}
+}
